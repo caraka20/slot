@@ -14,7 +14,7 @@ const Dashboard = () => {
         3: 20, // Default spin for Player 3
     });
     const [tempWinLimit, setTempWinLimit] = useState(winLimit); // Temporary state for win limit
-    const [darkMode, setDarkMode] = useState(false); // State for dark mode
+    const [darkMode, setDarkMode] = useState(true); // State for dark mode, default to true
 
     // Contoh data pemain aktif
     const players = [
@@ -102,12 +102,12 @@ const Dashboard = () => {
     return (
         <div className={`min-h-screen p-6 ${darkMode ? 'bg-gray-800 text-white' : 'bg-gray-100'}`}>
             <h1 className={`text-2xl font-bold mb-6 ${darkMode ? 'text-white' : 'text-gray-900'}`}>Dashboard Admin Slot</h1>
-            <button
-                className={`absolute top-4 right-4 bg-${darkMode ? 'blue-500' : 'gray-300'} hover:bg-${darkMode ? 'blue -600' : 'gray-400'} text-${darkMode ? 'white' : 'gray-800'} font-bold py-2 px-4 rounded`}
+            {/* <button
+                className={`absolute top-4 right-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded`}
                 onClick={toggleDarkMode}
             >
                 { darkMode ? 'Matikan Mode Gelap' : 'Aktifkan Mode Gelap'}
-            </button>
+            </button> */}
             <div className="grid grid-cols-2 gap-6">
                 <div className={`bg-${darkMode ? 'gray-700' : 'green-200'} p-4 rounded shadow cursor-pointer`} onClick={togglePlayersList}>
                     <h2 className={`text-xl font-semibold ${darkMode ? 'text-white' : 'text-gray-900'}`}>Player Aktif</h2>
@@ -131,7 +131,7 @@ const Dashboard = () => {
                         placeholder="Masukkan jumlah kemenangan"
                     />
                     <button
-                        className={`bg-${darkMode ? 'blue-500' : 'blue-500'} hover:bg-${darkMode ? 'blue-700' : 'blue-700'} text-white font-bold mt-2 py-2 px-4 rounded`}
+                        className={`bg-blue-500 hover:bg-blue-700 text-white font-bold mt-2 py-2 px-4 rounded`}
                         onClick={confirmWinLimitChange}
                     >
                         Konfirmasi
@@ -156,7 +156,7 @@ const Dashboard = () => {
                                         placeholder="Spin ke"
                                     />
                                     <button
-                                        className={`bg-${darkMode ? 'blue-500' : 'blue-500'} hover:bg-${darkMode ? 'blue-700' : 'blue-700'} text-white font-bold py-2 px-4 rounded`}
+                                        className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded`}
                                         onClick={() => confirmWinningSpinChange(player.id)}
                                     >
                                         Konfirmasi
